@@ -76,12 +76,12 @@ export function formatFilamentLabel(
   weight?: number,
   spoolType?: SpoolType
 ): string {
-  const portions = [];
+ let portions: string[] = [];
   if (vendorName) {
     portions.push(vendorName);
   }
   portions.push(name);
-  const extras = [];
+  const extras: string [] = [];
   if (material) {
     extras.push(material);
   }

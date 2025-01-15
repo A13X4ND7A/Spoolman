@@ -7,8 +7,7 @@ function generateRandomColor() {
   });
 }
 
-function generateInitialColors(num: number) {
-  const colors = [];
+function generateInitialColors(num: number) {const colors: string[] = [];
   for (let i = 0; i < num; i++) {
     colors.push(generateRandomColor());
   }

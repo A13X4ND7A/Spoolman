@@ -7,14 +7,14 @@ interface Props {
 
 export default function SpoolIcon(props: Props) {
   let dirClass = "vertical";
-  let cols = [];
-  let size = props.size ? props.size : "small";
+  let cols: string[] = [];
+  const size = props.size ? props.size : "small";
 
   if (typeof props.color === "string") {
     cols = [props.color];
   } else {
     dirClass = props.color.vertical ? "vertical" : "horizontal";
-    cols = props.color.colors;
+   cols = props.color.colors as string[];
   }
 
   return (

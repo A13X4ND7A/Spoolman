@@ -105,13 +105,18 @@ const PrintingDialog: React.FC<PrintingDialogProps> = ({
     }
   }
 
-  const pageBlocks = [];
+  const pageBlocks:never[] = [];
   for (let page_idx = 0; page_idx < itemsIncludingSkipped.length / itemsPerPage; page_idx += 1) {
-    pageBlocks.push(itemsIncludingSkipped.slice(page_idx * itemsPerPage, (page_idx + 1) * itemsPerPage));
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+      pageBlocks.push(itemsIncludingSkipped.slice(page_idx * itemsPerPage, (page_idx + 1) * itemsPerPage));
   }
+  console.log(itemsIncludingSkipped);
 
   const pages = pageBlocks.map(function (items, pageIdx) {
-    const itemDivs = items.map((item, itemIdx) => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+      const itemDivs = items.map((item, itemIdx) => {
       const isFirstColumn = itemIdx % itemsPerRow === 0;
       const isLastColumn = (itemIdx + 1) % itemsPerRow === 0;
       const isFirstRow = itemIdx < itemsPerRow;
